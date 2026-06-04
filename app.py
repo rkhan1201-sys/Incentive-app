@@ -133,7 +133,7 @@ with tab1:
         return color
 
     st.dataframe(
-        df_outlet.style.applymap(style_summary, subset=['Status'])
+        df_outlet.style.map(style_summary, subset=['Status'])
         .format({'Actual Sales': '{:,.2f}', 'Prev Incentive': '{:,.2f}', 'Proposed Incentive': '{:,.2f}', 'Variance': '{:,.2f}'}),
         use_container_width=True
     )
@@ -146,7 +146,7 @@ with tab2:
         return 'background-color: #ffcccc' if val == "🔴 Below Policy" else ''
 
     st.dataframe(
-        df_sim.style.applymap(style_granular, subset=['Status'])
+        df_sim.style.map(style_granular, subset=['Status'])
         .format({'Actual Sales': '{:,.2f}', 'Target': '{:,.2f}', 'Target Achieved %': '{:.2f}%', 'Prev Incentive': '{:,.2f}', 'Proposed Incentive': '{:,.2f}', 'Variance': '{:,.2f}'}),
         use_container_width=True
     )
